@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fun Quiz</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #4a5560;
+    font-family: Alata, sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.container {
+    background: #e6e6e6;
+    padding: 40px;
+    border-radius: 25px;
+    width: 70%;
+}
+
+.title {
+    text-align: center;
+    font-size: 60px;
+    color: #f7941d;
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+
+.q-bar {
+    background: #39b3a7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 28px;
+    margin-top: 25px;
+    text-decoration: underline;
+}
+
+.question-text {
+    color: #39b3a7;
+    font-size: 24px;
+    margin: 15px 0;
+    text-decoration: underline;
+}
+
+.options {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.options label {
+    display: block;
+    margin: 12px 0;
+    font-size: 20px;
+    color: #39b3a7;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.options label:hover {
+    background: rgba(57, 179, 167, 0.15);
+}
+
+.options input {
+    margin-right: 10px;
+    transform: scale(1.3);
+}
+
+.text-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #39b3a7;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+button {
+    background: #39b3a7;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.result {
+    margin-top: 30px;
+    font-size: 26px;
+    color: #f7941d;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">Test your knowledge</div>
+
+
+    <!-- Q1 -->
+    <div class="q-bar">Question 1</div>
+    <div class="question-text">What is personal finance mainly about?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q1" value="0"> Playing games</label>
+        <label><input type="radio" name="q1" value="1"> Managing money</label>
+        <label><input type="radio" name="q1" value="0"> Cooking food</label>
+        <label><input type="radio" name="q1" value="0"> Traveling</label>
+    </div>
+
+
+    <!-- Q2 -->
+    <div class="q-bar">Question 2</div>
+    <div class="question-text">One benefit of financial literacy?</div>
+
+    <input type="text" id="q2" class="text-input">
+
+
+    <!-- Q3 -->
+    <div class="q-bar">Question 3</div>
+    <div class="question-text">Needs are things you must have to survive</div>
+
+    <div class="options">
+        <label><input type="radio" name="q3" value="1"> True</label>
+        <label><input type="radio" name="q3" value="0"> False</label>
+    </div>
+
+
+    <!-- Q4 -->
+    <div class="q-bar">Question 4</div>
+    <div class="question-text">Which is a want?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q4" value="0"> Food</label>
+        <label><input type="radio" name="q4" value="0"> Water</label>
+        <label><input type="radio" name="q4" value="1"> Video games</label>
+        <label><input type="radio" name="q4" value="0"> Shelter</label>
+    </div>
+
+
+    <!-- Q5 -->
+    <div class="q-bar">Question 5</div>
+    <div class="question-text">What is income?</div>
+
+    <input type="text" id="q5" class="text-input">
+
+
+    <!-- Q6 -->
+    <div class="q-bar">Question 6</div>
+    <div class="question-text">Taxes are optional payments</div>
+
+    <div class="options">
+        <label><input type="radio" name="q6" value="0"> True</label>
+        <label><input type="radio" name="q6" value="1"> False</label>
+    </div>
+
+
+    <!-- Q7 -->
+    <div class="q-bar">Question 7</div>
+    <div class="question-text">Which is a tax?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q7" value="0"> Salary</label>
+        <label><input type="radio" name="q7" value="1"> Income tax</label>
+        <label><input type="radio" name="q7" value="0"> Bonus</label>
+    </div>
+
+
+    <!-- Q8 -->
+    <div class="q-bar">Question 8</div>
+    <div class="question-text">Name a service taxes pay for</div>
+
+    <input type="text" id="q8" class="text-input">
+
+
+    <!-- Q9 -->
+    <div class="q-bar">Question 9</div>
+    <div class="question-text">Purpose of a bank?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q9" value="1"> Store money</label>
+        <label><input type="radio" name="q9" value="0"> Sell clothes</label>
+    </div>
+
+
+    <!-- Q10 -->
+    <div class="q-bar">Question 10</div>
+    <div class="question-text">Which account saves money?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q10" value="1"> Savings account</label>
+        <label><input type="radio" name="q10" value="0"> Email account</label>
+    </div>
+
+
+    <!-- Q11 -->
+    <div class="q-bar">Question 11</div>
+    <div class="question-text">Interest is money earned</div>
+
+    <div class="options">
+        <label><input type="radio" name="q11" value="1"> True</label>
+        <label><input type="radio" name="q11" value="0"> False</label>
+    </div>
+
+
+    <!-- Q12 -->
+    <div class="q-bar">Question 12</div>
+    <div class="question-text">What is investing?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q12" value="1"> Grow money</label>
+        <label><input type="radio" name="q12" value="0"> Spend fast</label>
+    </div>
+
+
+    <!-- Q13 -->
+    <div class="q-bar">Question 13</div>
+    <div class="question-text">Example of investment?</div>
+
+    <div class="options">
+        <label><input type="radio" name="q13" value="1"> Stocks</label>
+        <label><input type="radio" name="q13" value="0"> Snacks</label>
+    </div>
+
+
+    <!-- Q14 -->
+    <div class="q-bar">Question 14</div>
+    <div class="question-text">What is a budget?</div>
+
+    <input type="text" id="q14" class="text-input">
+
+
+    <!-- Q15 -->
+    <div class="q-bar">Question 15</div>
+    <div class="question-text">Saving helps emergencies</div>
+
+    <div class="options">
+        <label><input type="radio" name="q15" value="1"> True</label>
+        <label><input type="radio" name="q15" value="0"> False</label>
+    </div>
+
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <button onclick="checkQuiz()">Submit</button>
+        <button onclick="window.location.href='Home page.html'">Go back home</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+</div>
+
+<script>
+function checkQuiz() {
+    let score = 0;
+
+    // Correct answers for MCQs
+    const answers = {
+        q1: "1",
+        q3: "1",
+        q4: "1",
+        q6: "1",
+        q7: "1",
+        q9: "1",
+        q10: "1",
+        q11: "1",
+        q12: "1",
+        q13: "1",
+        q15: "1"
+    };
+
+    // MCQ checking + highlighting
+    for (let q in answers) {
+        let radios = document.getElementsByName(q);
+
+        radios.forEach(radio => {
+            let label = radio.parentElement;
+
+            // Reset styles
+            label.style.background = "";
+
+            if (radio.checked) {
+                if (radio.value === answers[q]) {
+                    score++;
+                    label.style.background = "#b6f5c2"; // green
+                } else {
+                    label.style.background = "#f5b6b6"; // red
+                }
+            }
+
+            // Show correct answer (yellow)
+            if (radio.value === answers[q] && !radio.checked) {
+                label.style.background = "#fff3b0";
+            }
+        });
+    }
+
+    // Helper function for text answers
+    function checkText(input, keywords) {
+        let value = input.value.toLowerCase().trim();
+        return keywords.some(word => value.includes(word));
+    }
+
+    // Q2
+    let q2 = document.getElementById("q2");
+    if (checkText(q2, ["save", "money", "future", "debt", "manage", "income"])) {
+        score++;
+        q2.style.background = "#b6f5c2";
+    } else {
+        q2.style.background = "#f5b6b6";
+    }
+
+    // Q5
+    let q5 = document.getElementById("q5");
+    if (checkText(q5, ["earn", "money", "receive", "income"])) {
+        score++;
+        q5.style.background = "#b6f5c2";
+    } else {
+        q5.style.background = "#f5b6b6";
+    }
+
+    // Q8
+    let q8 = document.getElementById("q8");
+    if (checkText(q8, ["school", "road", "hospital", "police", "education", "infrastructure"])) {
+        score++;
+        q8.style.background = "#b6f5c2";
+    } else {
+        q8.style.background = "#f5b6b6";
+    }
+
+    // Q14
+    let q14 = document.getElementById("q14");
+    if (checkText(q14, ["plan", "money", "spend", "budget", "income"])) {
+        score++;
+        q14.style.background = "#b6f5c2";
+    } else {
+        q14.style.background = "#f5b6b6";
+    }
+
+    // Display final score
+    document.getElementById("result").innerHTML = "Your Score: " + score + "/15";
+}
+</script>

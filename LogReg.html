@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login/Register</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('LogRegBackround.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* MAIN CARD */
+.container {
+    display: flex;
+    width: 800px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+.left {
+    background: #f2f2f2;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.left img {
+    width: 180px;
+    margin-bottom: 30px;
+}
+
+.home-btn {
+    border: 2px solid orange;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.home-btn a {
+    color: orange;
+    text-decoration: none;
+}
+
+.right {
+    background: #2fb3a5;
+    width: 60%;
+    padding: 40px;
+    color: white;
+}
+
+.title {
+    font-size: 40px;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.switch {
+    display: flex;
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.switch button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.active {
+    background: white;
+    color: #2fb3a5;
+}
+
+.input-box {
+    margin: 15px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <img src="White%20orange%20logo.png" alt="icon">
+        <div class="home-btn">
+            <a href="Home page.html">Home page ▶</a>
+        </div>
+    </div>
+
+    <div class="right">
+
+        <div class="title">Login/Register</div>
+
+        <div class="switch">
+            <button id="loginBtn" class="active" onclick="showLogin()">Login</button>
+            <button id="registerBtn" onclick="showRegister()">Register</button>
+        </div>
+
+        <div id="formArea">
+
+            <div id="loginForm">
+                <div class="input-box">
+                    <input type="email" id="loginEmail" placeholder="Put your Email:">
+                </div>
+                <div class="input-box">
+                    <input type="password" id="loginPassword" placeholder="Enter your password:">
+                </div>
+                <button class="submit-btn" onclick="login()">Login now</button>
+            </div>
+
+            <div id="registerForm" style="display:none;">
+                <div class="input-box">
+                    <input type="text" id="registerName" placeholder="Enter your name:">
+                </div>
+                <div class="input-box">
+                    <input type="email" id="registerEmail" placeholder="Put your Email:">
+                </div>
+                <div class="input-box">
+                    <input type="password" id="registerPassword" placeholder="Create a password:">
+                </div>
+                <button class="submit-btn" onclick="register()">Register now</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function showLogin() {
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("registerForm").style.display = "none";
+
+    document.getElementById("loginBtn").classList.add("active");
+    document.getElementById("registerBtn").classList.remove("active");
+}
+
+function showRegister() {
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+
+    document.getElementById("registerBtn").classList.add("active");
+    document.getElementById("loginBtn").classList.remove("active");
+}
+
+function register() {
+    const name = document.getElementById("registerName").value.trim();
+    const email = document.getElementById("registerEmail").value.trim();
+    const password = document.getElementById("registerPassword").value.trim();
+
+    if (!name || !email || !password) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    if (localStorage.getItem(email)) {
+        alert("User already exists. Please login.");
+        return;
+    }
+
+    const user = {
+        name: name,
+        email: email,
+        password: password
+    };
+
+    localStorage.setItem(email, JSON.stringify(user));
+
+    alert("Registered successfully! Now login.");
+    showLogin();
+}
+
+function login() {
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+    const storedUser = localStorage.getItem(email);
+
+    if (!storedUser) {
+        alert("User not found. Please register.");
+        return;
+    }
+
+    const user = JSON.parse(storedUser);
+
+    if (user.password === password) {
+        // Save current logged-in user
+        localStorage.setItem("currentUser", JSON.stringify(user));
+
+        window.location.href = "Edupage.html";
+    } else {
+        alert("Incorrect password");
+    }
+}
+</script>
+
+</body>
+</html>
