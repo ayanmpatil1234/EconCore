@@ -263,8 +263,6 @@ button:hover {
         <label><input type="radio" name="q15" value="0"> False</label>
     </div>
 
-
-    <!-- Buttons -->
     <div class="buttons">
         <button onclick="checkQuiz()">Submit</button>
         <button onclick="window.location.href='Home page.html'">Go back home</button>
@@ -278,7 +276,6 @@ button:hover {
 function checkQuiz() {
     let score = 0;
 
-    // Correct answers for MCQs
     const answers = {
         q1: "1",
         q3: "1",
@@ -293,39 +290,34 @@ function checkQuiz() {
         q15: "1"
     };
 
-    // MCQ checking + highlighting
     for (let q in answers) {
         let radios = document.getElementsByName(q);
 
         radios.forEach(radio => {
             let label = radio.parentElement;
 
-            // Reset styles
             label.style.background = "";
 
             if (radio.checked) {
                 if (radio.value === answers[q]) {
                     score++;
-                    label.style.background = "#b6f5c2"; // green
+                    label.style.background = "#b6f5c2";
                 } else {
-                    label.style.background = "#f5b6b6"; // red
+                    label.style.background = "#f5b6b6";
                 }
             }
 
-            // Show correct answer (yellow)
             if (radio.value === answers[q] && !radio.checked) {
                 label.style.background = "#fff3b0";
             }
         });
     }
 
-    // Helper function for text answers
     function checkText(input, keywords) {
         let value = input.value.toLowerCase().trim();
         return keywords.some(word => value.includes(word));
     }
 
-    // Q2
     let q2 = document.getElementById("q2");
     if (checkText(q2, ["save", "money", "future", "debt", "manage", "income"])) {
         score++;
@@ -334,7 +326,6 @@ function checkQuiz() {
         q2.style.background = "#f5b6b6";
     }
 
-    // Q5
     let q5 = document.getElementById("q5");
     if (checkText(q5, ["earn", "money", "receive", "income"])) {
         score++;
@@ -343,7 +334,6 @@ function checkQuiz() {
         q5.style.background = "#f5b6b6";
     }
 
-    // Q8
     let q8 = document.getElementById("q8");
     if (checkText(q8, ["school", "road", "hospital", "police", "education", "infrastructure"])) {
         score++;
@@ -352,7 +342,6 @@ function checkQuiz() {
         q8.style.background = "#f5b6b6";
     }
 
-    // Q14
     let q14 = document.getElementById("q14");
     if (checkText(q14, ["plan", "money", "spend", "budget", "income"])) {
         score++;
@@ -361,7 +350,6 @@ function checkQuiz() {
         q14.style.background = "#f5b6b6";
     }
 
-    // Display final score
     document.getElementById("result").innerHTML = "Your Score: " + score + "/15";
 }
 </script>
